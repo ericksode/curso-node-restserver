@@ -66,15 +66,13 @@ const usuariosPatch = (req = request, res) => {
 
 const usuariosDelete = async(req = request, res) => {
     const { id } = req.params;
-    
     //Borrado en duro o fisicamente
     //const usuario = await Usuario.findByIdAndDelete(id);
-    
     //Borrado en blando
     const usuario = await Usuario.findByIdAndUpdate(id, {estado: false});
-
+    //const usuarioAuth = req.usuario;
     res.json({
-        usuario: usuario
+        usuario: usuario,
     });
 };
 
